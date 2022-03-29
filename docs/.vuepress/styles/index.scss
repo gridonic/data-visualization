@@ -1,0 +1,15 @@
+:root {
+    --c-brand: #f5487f;
+    --c-brand-light: #8f3b76;
+
+    --c-chart-4: #1f306e;
+    --c-chart-3: #553772;
+    --c-chart-2: #8f3b76;
+    --c-chart-1: #c7417b;
+    --c-chart-0: #f5487f;
+}
+
+.chart-component {
+    display: grid;
+    justify-items: end;
+}
