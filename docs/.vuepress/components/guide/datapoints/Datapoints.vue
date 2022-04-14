@@ -2,7 +2,7 @@
   <Base v-model:width="width" :height="height">
     <path
         fill="none"
-        stroke="var(--c-brand)"
+        stroke="var(--c-chart-1)"
         stroke-width="1"
         :d="lineGenerator(series)"
     ></path>
@@ -16,10 +16,11 @@
           text-anchor="middle"
           dy="-8"
           font-size="10"
+          fill="var(--c-chart-1)"
       >{{ y }}</text>
       <circle
         r="3"
-        fill="var(--c-brand)"
+        fill="var(--c-chart-1)"
         :cx="xScale(x)"
         :cy="yScale(y)"
       ></circle>

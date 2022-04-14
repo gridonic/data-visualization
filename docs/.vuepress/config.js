@@ -1,12 +1,13 @@
 const { path } = require('@vuepress/utils')
-
+const getChildren = require('./childscript');
 module.exports = {
     bundler: '@vuepress/bundler-webpack',
+    dest: '../../vuepress',
     alias: {
         '@Base': path.resolve(__dirname, './components/base/Base.vue'),
     },
     lang: 'en-US',
-    title: 'd3vue-cookbook',
+    title: 'Data Visualizations',
     description: 'This is my first VuePress site',
     plugins: [
         [
@@ -20,7 +21,10 @@ module.exports = {
                     // generators
                     Line: path.resolve(__dirname, './components/guide/generators/Line.vue'),
                     Area: path.resolve(__dirname, './components/guide/generators/Area.vue'),
+                    Column: path.resolve(__dirname, './components/guide/generators/Column.vue'),
                     Bar: path.resolve(__dirname, './components/guide/generators/Bar.vue'),
+                    Donut: path.resolve(__dirname, './components/guide/generators/Donut.vue'),
+                    Pie: path.resolve(__dirname, './components/guide/generators/Pie.vue'),
 
                     // scaling
                     Linear: path.resolve(__dirname, './components/guide/scaling/Linear.vue'),
@@ -54,34 +58,115 @@ module.exports = {
         editLinks: true,
         editLinkText: 'Help us improve this page!',
         navbar: [
-            { text: 'Guide', link: '/guide/generators' },
+            { text: 'Guide', link: '/guide/guide/introduction' },
             { text: 'Base', link: '/base/base' },
-            // { text: 'Examples', link: '/examples/line' }
         ],
         sidebar: {
             '/guide/': [
                 {
                     text: 'Guide',
+                    link: '/guide/guide/introduction.md',
+                    collapsible: true,
                     children: [
-                        { text: 'D3 + Vue', link: '/guide/d3+vue' },
-                        { text: 'Getting Started', link: '/guide/getting-started' },
-                        { text: 'Scaling', link: '/guide/scaling' },
-                        { text: 'Generators', link: '/guide/generators' },
-                        { text: 'Curve', link: '/guide/curve' },
-                        { text: 'Datapoints', link: '/guide/datapoints' },
-                        { text: 'Axes', link: '/guide/axes' },
-                        { text: 'Interactions', link: '/guide/interactions' },
-                        { text: 'Animations', link: '/guide/animations' },
-                        { text: 'Basics', link: '/guide/basics' },
+                        { text: 'Introduction', link: '/guide/guide/introduction.md'},
+                        { text: 'Getting Started', link: '/guide/guide/getting-started.md'},
+                    ]
+                },
+                {
+                    text: 'Basics',
+                    link: '/guide/basics/scaling.md',
+                    collapsible: true,
+                    children: [
+                        { text: 'Scaling', link: '/guide/basics/scaling.md'},
+                        { text: 'Generators', link: '/guide/basics/generators.md'},
+                        { text: 'Basics', link: '/guide/basics/basics.md'},
+                        // if you want to have child in subnav:
+                        // '/guide/basics/basics.md'
+                    ],
+                },
+                {
+                    text: 'Generators',
+                    link: '/guide/generators/line.md',
+                    collapsible: true,
+                    children: [
+                        '/guide/generators/line.md',
+                        '/guide/generators/area.md',
+                        '/guide/generators/stacked-area.md',
+                        '/guide/generators/pie.md',
+                        '/guide/generators/donut.md',
+                        '/guide/generators/bar.md',
+                        '/guide/generators/column.md',
+                    ],
+                },
+                {
+                    text: 'Customizations',
+                    link: '/guide/customizations/datapoints.md',
+                    collapsible: true,
+                    children: [
+                        '/guide/customizations/datapoints.md',
+                        '/guide/customizations/curve.md',
+                    ],
+                },
+                {
+                    text: 'Interactions',
+                    link: '/guide/interactions/grid.md',
+                    collapsible: true,
+                    children: [
+                        '/guide/interactions/grid.md',
+                        '/guide/interactions/highlight.md',
+                        '/guide/interactions/panning.md',
+                        '/guide/interactions/toolbox.md',
+                        '/guide/interactions/tooltip.md',
+                        '/guide/interactions/zoom.md',
+                    ],
+                },
+                {
+                    text: 'Animations',
+                    link: '/guide/animations/drawing-effect.md',
+                    collapsible: true,
+                    children: [
+                        '/guide/animations/drawing-effect.md',
+                        '/guide/animations/tween-up.md',
+                        '/guide/animations/tween-on-change.md',
+                    ],
+                },
+                {
+                    text: 'Axes',
+                    link: '/guide/axes/default.md',
+                    collapsible: true,
+                    children: [
+                        '/guide/axes/default.md',
+                        '/guide/axes/format.md',
+                        '/guide/axes/grid.md',
+                        '/guide/axes/custom-styles.md',
+                        '/guide/axes/ticks.md',
+                        '/guide/axes/reactivity.md',
                     ],
                 },
             ],
-            '/base/': [{
-                text: 'Base',
-                children: [
-                    { text: 'Idea', link: '/base/idea' },
-                ],
-            }],
+        }
+        // sidebar: {
+            // '/guide/': [
+            //     {
+            //         text: 'Guide',
+            //         // children: [
+            //         //     { text: 'Getting Started', link: '/guide/getting-started' },
+            //         //     { text: 'Scaling', link: '/guide/scaling' },
+            //         //     { text: 'Generators', link: '/guide/generators' },
+            //         //     { text: 'Customizations', link: '/guide/customizations' },
+            //         //     { text: 'Axes', link: '/guide/axes' },
+            //         //     { text: 'Interactions', link: '/guide/interactions' },
+            //         //     { text: 'Animations', link: '/guide/animations' },
+            //         //     { text: 'Basics', link: '/guide/basics' },
+            //         // ],
+            //     },
+            // ],
+            // '/base/': [{
+            //     text: 'Base',
+            //     children: [
+            //         { text: 'Idea', link: '/base/idea' },
+            //     ],
+            // }],
             // '/examples/': [
             //     {
             //         text: 'Examples',
@@ -94,6 +179,6 @@ module.exports = {
             //         ],
             //     },
             // ]
-        },
+        // },
     },
 }

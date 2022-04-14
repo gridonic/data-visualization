@@ -1,10 +1,6 @@
-# Generator functions
-## Concept
-D3 generators consist of functions that take data and return the necessary SVG drawing code to create a graphical object based on that data. 
+# Concept
+D3 generators consist of functions that take data and return the necessary SVG drawing code to create a graphical object based on that data.
 For instance, if you have an array of points and you want to draw a line from one point to another, or turn it into a polygon or an area, a few D3 functions can help you with this process. These generators simplify the process of creating a complex SVG `<path>` by abstracting the process needed to write a `<path>` d attribute.
-## Line
-
-<Line/>
 
 create some random data:
 ```js
@@ -58,15 +54,6 @@ finally render the path:
   </SVGWrapper>
 </template>
 ```
-
-## Areas
-<Area/>
-
-## Stacked Area
-
-## Pie
-
-## Donut
 
 ## Column
 <Bar/>

@@ -1,7 +1,7 @@
 # Curve
-## Types
-d3 offers different curve types. 
+d3 offers different curve types.
 More insights on [github](https://github.com/d3/d3-shape#curves).
+
 <Type/>
 
 This code-example shows a linear curve:

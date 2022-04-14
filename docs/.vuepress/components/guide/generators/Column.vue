@@ -6,10 +6,10 @@
         stroke-width="1"
         v-for="(bar, index) in serie"
         :key="`bar-${index}`"
-        :x="0"
+        :x="xScale(bar.x)"
         :y="yScale(bar.y)"
-        :height="yScale.bandwidth()"
-        :width="width - xScale(bar.x)"
+        :width="xScale.bandwidth()"
+        :height="height - yScale(bar.y)"
       />
     </Base>
   </div>
@@ -20,26 +20,26 @@ import {computed, ref } from 'vue';
 import { scaleLinear, scaleBand, max } from 'd3';
 import Base from '@Base';
 const width = ref(null);
-const height = ref(400);
+const height = ref(200);
 
 const serie = [
-  { y: 0, x: 9 },
-  { y: 1, x: 7 },
-  { y: 2, x: 5 },
-  { y: 3, x: 4 },
-  { y: 4, x: 8 },
+  { x: 0, y: 9 },
+  { x: 1, y: 7 },
+  { x: 2, y: 5 },
+  { x: 3, y: 4 },
+  { x: 4, y: 8 },
 ];
 
-const yScale = computed(() => {
+const xScale = computed(() => {
   return scaleBand()
-      .domain(serie.map(({ y }) => y))
-      .range([0, height.value])
+      .domain(serie.map(({ x }) => x))
+      .range([0, width.value])
       .padding(0.3);
 });
 
-const xScale = computed(() => {
+const yScale = computed(() => {
   return scaleLinear()
-      .domain([0, max(serie, ({ x }) => x)])
-      .range([width.value, 0]);
+      .domain([0, max(serie, (d) => d.y)])
+      .range([height.value, 0]);
 });
 </script>

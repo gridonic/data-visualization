@@ -32,7 +32,7 @@
     <Base v-model:width="width" :height="height">
       <path
           fill="none"
-          stroke="var(--c-brand)"
+          stroke="var(--c-chart-1)"
           stroke-width="1"
           :d="lineGenerator(series)"
       ></path>

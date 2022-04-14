@@ -132,9 +132,9 @@ MDN [SVG Tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
     >
       <path
         d="M 3 5 l 4 0 M 5 3 l 0 4"
-        stroke="black"
+        stroke="var(--c-brand)"
         stroke-width="1"
-        style="opacity: 0.25;"
+        style="opacity: 1;"
       />
     </pattern>
   </defs>

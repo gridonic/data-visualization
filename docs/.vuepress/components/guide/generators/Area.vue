@@ -3,15 +3,12 @@
     <Base v-model:width="width" :height="height">
       <path
           fill="var(--c-chart-3)"
-          stroke="var(--c-chart-4)"
-          stroke-width="3"
+          opacity="0.9"
           :d="areaGenerator(series[0])"
       ></path>
       <path
           fill="var(--c-chart-0)"
-          stroke="var(--c-chart-1)"
-          opacity="1"
-          stroke-width="3"
+          opacity="0.9"
           :d="areaGenerator(series[1])"
       ></path>
     </Base>
@@ -20,7 +17,7 @@
 
 <script setup>
 import {computed, ref } from 'vue';
-import { area, scaleLinear, max, curveNatural } from 'd3';
+import { area, scaleLinear, max, curveLinear } from 'd3';
 import Base from '@Base';
 
 const width = ref(null);
@@ -38,8 +35,8 @@ const series = [
   [
     { x: 0, y: 90 },
     { x: 20, y: 80 },
-    { x: 40, y: 70 },
-    { x: 60, y: 33 },
+    { x: 40, y: 20 },
+    { x: 60, y: 90 },
     { x: 80, y: 20 },
     { x: 100, y: 0 },
   ]
@@ -62,6 +59,6 @@ const areaGenerator = computed(() => {
       .x((d) => xScale.value(d.x))
       .y0(height.value)
       .y1((d) => yScale.value(d.y ?? 0))
-      .curve(curveNatural);
+      .curve(curveLinear);
 });
 </script>
