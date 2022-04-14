@@ -1,0 +1,2 @@
+.grid-example{display:grid;grid-auto-flow:column;grid-template-columns:1fr 1fr;gap:1rem}
+.my-wrapper-styles>svg{box-shadow:0 0 5px 0#f0f8ff;background-color:#f0f8ff}
