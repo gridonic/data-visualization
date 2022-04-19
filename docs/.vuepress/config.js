@@ -1,8 +1,7 @@
 const { path } = require('@vuepress/utils')
-const getChildren = require('./childscript');
 module.exports = {
     bundler: '@vuepress/bundler-webpack',
-    dest: '../../vuepress',
+    base: '/data-visualization/',
     alias: {
         '@Base': path.resolve(__dirname, './components/base/Base.vue'),
     },
@@ -145,40 +144,5 @@ module.exports = {
                 },
             ],
         }
-        // sidebar: {
-            // '/guide/': [
-            //     {
-            //         text: 'Guide',
-            //         // children: [
-            //         //     { text: 'Getting Started', link: '/guide/getting-started' },
-            //         //     { text: 'Scaling', link: '/guide/scaling' },
-            //         //     { text: 'Generators', link: '/guide/generators' },
-            //         //     { text: 'Customizations', link: '/guide/customizations' },
-            //         //     { text: 'Axes', link: '/guide/axes' },
-            //         //     { text: 'Interactions', link: '/guide/interactions' },
-            //         //     { text: 'Animations', link: '/guide/animations' },
-            //         //     { text: 'Basics', link: '/guide/basics' },
-            //         // ],
-            //     },
-            // ],
-            // '/base/': [{
-            //     text: 'Base',
-            //     children: [
-            //         { text: 'Idea', link: '/base/idea' },
-            //     ],
-            // }],
-            // '/examples/': [
-            //     {
-            //         text: 'Examples',
-            //         collapsable: false,
-            //         children: [
-            //             { text: 'Line', link: '/examples/line' },
-            //             { text: 'Bar', link: '/examples/bar' },
-            //             { text: 'Doughnut', link: '/examples/doughnut' },
-            //             { text: 'Area', link: '/examples/area' },
-            //         ],
-            //     },
-            // ]
-        // },
     },
 }

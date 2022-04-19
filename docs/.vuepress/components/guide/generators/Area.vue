@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Base v-model:width="width" :height="height">
+    <Base v-model:width="width" :height="height" boundaries>
       <path
           fill="var(--c-chart-3)"
           opacity="0.9"
